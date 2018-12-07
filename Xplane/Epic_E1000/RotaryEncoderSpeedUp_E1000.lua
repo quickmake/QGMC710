@@ -1,6 +1,6 @@
 --*****************************************************--
 -- Driver for QGMC710 for Epic E1000
---Button Speed Up Script
+--RotaryEncoder Speed Up Script
 -- QuickMake mail:409050332@qq.com
 --Build:2018-12-7
 

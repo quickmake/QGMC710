@@ -17,6 +17,7 @@ require "bit"
 ----------------------  Edit the  DataRef for different Aircraft -----------------------
 
 if PLANE_ICAO == "TBM9" then
+    DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
     DataRef("flc_led", "tbm900/lights/ap/flc")
     DataRef("vs_led", "tbm900/lights/ap/vs")
     DataRef("yd_led", "tbm900/lights/ap/yd")
@@ -38,6 +39,7 @@ if PLANE_ICAO == "TBM9" then
     dataref("ALT", "tbm900/knobs/ap/alt", "writable")
     ------------------------------------------------
 else
+    DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
     DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
     DataRef("vs_led", "sim/cockpit2/autopilot/vvi_status")
     DataRef("yd_led", "sim/cockpit/switches/yaw_damper_on")
@@ -73,6 +75,17 @@ end
 sendbytes = {0x00, 0x04} --bytes will send
 sendbytes_old = {0x00, 0x04} --bytes last send
 
+
+function LED_brightness()
+    local led_br = math.floor(cockpit_led *3.0)
+
+    sendbytes[1] = bit.bor(sendbytes[1], 0x80)
+    local led_br_bits = bit.band(bit.lshift(led_br, 6), 0xC0)
+    sendbytes[2] = bit.band(sendbytes[2], 0x3F)
+    sendbytes[2] = bit.bor(sendbytes[2], led_br_bits)
+
+end
+
 function LED_UPD()
     sendbytes[1] = flc_led > 0 and bit.bor(sendbytes[1], 0x40) or bit.band(sendbytes[1], 0xBF)
     sendbytes[1] = vs_led > 0 and bit.bor(sendbytes[1], 0x20) or bit.band(sendbytes[1], 0xDF)
@@ -88,6 +101,8 @@ function LED_UPD()
     sendbytes[2] = xfr_l_led > 0 and bit.bor(sendbytes[2], 0x04) or bit.band(sendbytes[2], 0xFB)
     sendbytes[2] = bc_led > 0 and bit.bor(sendbytes[2], 0x02) or bit.band(sendbytes[2], 0xFD)
     sendbytes[2] = apr_led > 0 and bit.bor(sendbytes[2], 0x01) or bit.band(sendbytes[2], 0xFE)
+
+    LED_brightness()
 
     --send data
     if (sendbytes[1] ~= sendbytes_old[1] or sendbytes[2] ~= sendbytes_old[2]) then

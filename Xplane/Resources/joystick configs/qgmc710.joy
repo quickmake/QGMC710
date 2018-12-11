@@ -40,22 +40,55 @@ View: front view
 Image: qgmc710.png
 
 
-Button 1 (HDG): 694 206
+Button 0 (HDG): 194 125
+
+Button 1 (APR): 239 171
+Button 8 (BC): 198 234
+
+Button 2 (NAV): 291 224
+Button 3 (FD): 353 286
 
 
-Button Group (APR): 2 9
-Button 2 (APR): 745 444
-Button 9 (BC): 745 444
+Button 5 (ALT SEL): 518 459
+Button 6 (VS): 569 503
+Button 7 (FLC): 688 617
+
+Button 9 (BANK): 308 345
+Button 10 (NAV): 292 227
+
+Button 12 (VNV): 515 554
+Button 13 (SPD): 628 665
+
+Button Group (CRS1 Rotary Switch): 15 20 21
+Button 15 (CRS1 PUSH DIR): 221 289
+Button 20 (CRS1 DEC): 292 227
+Button 21 (CRS1 INC): 292 227
+
+Button Group (CRS2 Rotary Switch): 17 26 27
+Button 17 (CRS2 PUSH DIR): 691 763
+Button 26 (CRS2 DEC): 691 763
+Button 27 (CRS2 INC): 691 763
+
+Button Group (HDG Rotary Switch): 14 18 19
+Button 14 (HDG PUSH SYNC): 120 180
+Button 18 (HDG DEC): 120 180
+Button 19 (HDG INC): 120 180
 
 
-Button Group (VS): 24 25
-Button 24 (UP): 745 444
-Button 25 (DN): 201 627
 
-Button Group (Autopilot switch): 4 10 11
-Button 4 (XFR): 252 694
-Button 10 (AP): 219 705
-Button 11 (YD): 219 705
+Button Group (ALT Rotary Switch): 16 22 23
+Button 16 (ALT PUSH DIR): 452 521
+Button 22 (ALT DEC): 452 521
+Button 23 (ALT INC): 452 521
+
+Button Group (VS Rotary Switch): 24 25
+Button 24 (DN): 584 595
+Button 25 (UP): 584 595
+
+
+Button 4 (XFR): 430 367
+Button 10 (AP): 360 395
+Button 11 (YD): 407 447
 
 
 Assignments:
@@ -108,6 +141,7 @@ Button 12: tbm900/actuators/ap/vnv
 Button 13: tbm900/actuators/ap/spd
 Button 14: tbm900/actuators/ap/hdg_sync
 Button 15: tbm900/actuators/ap/crs1_dr
+Button 16: 
 Button 17: tbm900/actuators/ap/crs2_dr
 Button 18: FlyWithLua/QGMC710/HDG_DEC
 Button 19: FlyWithLua/QGMC710/HDG_INC
@@ -115,6 +149,8 @@ Button 22: FlyWithLua/QGMC710/ALT_DEC
 Button 23: FlyWithLua/QGMC710/ALT_INC
 Button 24: tbm900/actuators/ap/nose_down
 Button 25: tbm900/actuators/ap/nose_up
+Button 26: tbm900/actuators/ap/nose_down
+Button 27: tbm900/actuators/ap/nose_up
 
 
 # FORMAT FOR HAT SWITCHES:

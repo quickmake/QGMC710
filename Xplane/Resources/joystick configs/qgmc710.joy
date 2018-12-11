@@ -1,0 +1,159 @@
+I
+1100 Version
+JOY
+
+# NOTE:
+# If X-Plane did not come with a default configuration for your device,
+# and you would like to share *your* configuration with the world,
+# email this file to tyler+joysticks@x-plane.com and we will evaluate
+# it for inclusion with the simulator. Thanks!!
+
+# You can find a complete spec for this file format, with instructions on configuring
+# both the device views and the default configuration here:
+# http://lookup.x-plane.com/_lookup_11_/joy_file_spec.html
+
+# One or more operating systems this file applies to.
+# Windows, macOS, and Linux will index the axes differently, so a file
+# that correctly configures your joystick on one platform is *not*
+# guaranteed to work on the other.
+OS: Windows
+# Other valid options:
+# OS: Linux
+# OS: Mac
+
+# Zero or more device names (provided by the operating system, as seen in the UI)
+# that this .joy file describes.
+# (Note that you need at least one name or one ID, described below.)
+# If more than one device is named, we're saying that *any* of those devices should be configured
+# using the *same* defaults and the same image maps.
+Name: QGMC710
+
+# Zero or more USB identifiers (vendor ID + product ID) that this .joy file describes.
+# (Note that you need at least one ID or Name, described above.)
+# If more than USB identifier is given, we'll use this .joy file to configure *any* of those devices.
+ID: VID:0x0483PID:0x5650
+
+Display: QGMC710
+
+View: front view
+-----------------------------------------------------------------------
+Image: qgmc710.png
+
+
+Button 0 (HDG): 194 125
+
+Button 1 (APR): 239 171
+Button 8 (BC): 198 234
+
+Button 2 (NAV): 291 224
+Button 3 (FD): 353 286
+
+
+Button 5 (ALT SEL): 518 459
+Button 6 (VS): 569 503
+Button 7 (FLC): 688 617
+
+Button 9 (BANK): 308 345
+Button 10 (NAV): 292 227
+
+Button 12 (VNV): 515 554
+Button 13 (SPD): 628 665
+
+Button Group (CRS1 Rotary Switch): 15 20 21
+Button 15 (CRS1 PUSH DIR): 221 289
+Button 20 (CRS1 DEC): 292 227
+Button 21 (CRS1 INC): 292 227
+
+Button Group (CRS2 Rotary Switch): 17 26 27
+Button 17 (CRS2 PUSH DIR): 691 763
+Button 26 (CRS2 DEC): 691 763
+Button 27 (CRS2 INC): 691 763
+
+Button Group (HDG Rotary Switch): 14 18 19
+Button 14 (HDG PUSH SYNC): 120 180
+Button 18 (HDG DEC): 120 180
+Button 19 (HDG INC): 120 180
+
+
+
+Button Group (ALT Rotary Switch): 16 22 23
+Button 16 (ALT PUSH DIR): 452 521
+Button 22 (ALT DEC): 452 521
+Button 23 (ALT INC): 452 521
+
+Button Group (VS Rotary Switch): 24 25
+Button 24 (DN): 584 595
+Button 25 (UP): 584 595
+
+
+Button 4 (XFR): 430 367
+Button 10 (AP): 360 395
+Button 11 (YD): 407 447
+
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: hidden
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud	joy_use_vr_touchpad_x	joy_use_vr_touchpad_y
+#	 joy_use_vr_trigger	joy_use_commands	joy_use_thro5
+#	 joy_use_thro6	joy_use_thro7	joy_use_thro8
+#	 joy_use_cowl_flaps1	joy_use_cowl_flaps2	joy_use_cowl_flaps3
+#	 joy_use_cowl_flaps4	joy_use_cowl_flaps5	joy_use_cowl_flaps6
+#	 joy_use_cowl_flaps7	joy_use_cowl_flaps8
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: tbm900/actuators/ap/hdg
+Button 1: tbm900/actuators/ap/apr
+Button 2: tbm900/actuators/ap/nav
+Button 3: tbm900/actuators/ap/fd
+Button 4: tbm900/actuators/ap/xfr
+Button 5: tbm900/actuators/ap/alt
+Button 6: tbm900/actuators/ap/vs
+Button 7: tbm900/actuators/ap/flc
+Button 8: tbm900/actuators/ap/bc
+Button 9: tbm900/actuators/ap/bank
+Button 10: tbm900/actuators/ap/ap
+Button 11: tbm900/actuators/ap/yd
+Button 12: tbm900/actuators/ap/vnv
+Button 13: tbm900/actuators/ap/spd
+Button 14: tbm900/actuators/ap/hdg_sync
+Button 15: tbm900/actuators/ap/crs1_dr
+Button 16: 
+Button 17: tbm900/actuators/ap/crs2_dr
+Button 18: FlyWithLua/QGMC710/HDG_DEC
+Button 19: FlyWithLua/QGMC710/HDG_INC
+Button 22: FlyWithLua/QGMC710/ALT_DEC
+Button 23: FlyWithLua/QGMC710/ALT_INC
+Button 24: tbm900/actuators/ap/nose_down
+Button 25: tbm900/actuators/ap/nose_up
+Button 26: tbm900/actuators/ap/nose_down
+Button 27: tbm900/actuators/ap/nose_up
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number>: hidden
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands

@@ -67,6 +67,7 @@ device = hid_open(0x0483, 0x5650)
 if device == nil then
 	-- print("Oh, no,you not have a QGMC710 hardware!")
 	XPLMSpeakString("Oh, no! You not have a hardware!")
+    return
 else
 	--XPLMSpeakString("QGMC710")
 	hid_set_nonblocking(device, 1)

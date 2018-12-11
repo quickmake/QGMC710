@@ -72,21 +72,13 @@ else
 	hid_set_nonblocking(device, 1)
 end
 
-sendbytes = {0x00, 0x04} --bytes will send
+
 sendbytes_old = {0x00, 0x04} --bytes last send
 
 
-function LED_brightness()
-	local led_br = math.floor(cockpit_led *3.0)
-
-	sendbytes[1] = bit.bor(sendbytes[1], 0x80)
-	local led_br_bits = bit.band(bit.lshift(led_br, 6), 0xC0)
-	sendbytes[2] = bit.bor(sendbytes[2], led_br_bits)
-
-end
-
 function LED_UPD()
-	sendbytes[1] = 0
+    local sendbytes = {0x00, 0x00} --bytes will send
+
 	if flc_led > 0 then sendbytes[1] = bit.bor(sendbytes[1], 0x40) end
 	if vs_led > 0 then sendbytes[1] = bit.bor(sendbytes[1], 0x20) end
 	if yd_led > 0 then sendbytes[1] = bit.bor(sendbytes[1], 0x10) end
@@ -95,7 +87,6 @@ function LED_UPD()
 	if nav_led > 0 then sendbytes[1] = bit.bor(sendbytes[1], 0x02) end
 	if hdg_led > 0 then sendbytes[1] = bit.bor(sendbytes[1], 0x01) end
 
-    sendbytes[2] = 0
 	if vnv_led > 0 then sendbytes[2] = bit.bor(sendbytes[2], 0x20) end 
 	if alt_led > 0 then sendbytes[2] = bit.bor(sendbytes[2], 0x10) end
 	if ap_led > 0 then sendbytes[2] = bit.bor(sendbytes[2], 0x08) end
@@ -103,7 +94,11 @@ function LED_UPD()
 	if bc_led > 0 then sendbytes[2] = bit.bor(sendbytes[2], 0x02) end
 	if apr_led > 0 then sendbytes[2] = bit.bor(sendbytes[2], 0x01) end
 
-	LED_brightness()
+	local led_br = math.floor(cockpit_led *3.0)
+
+    sendbytes[1] = bit.bor(sendbytes[1], 0x80)
+    local led_br_bits = bit.lshift(led_br, 6)
+    sendbytes[2] = bit.bor(sendbytes[2], led_br_bits)
 
 	--send data
 	if (sendbytes[1] ~= sendbytes_old[1] or sendbytes[2] ~= sendbytes_old[2]) then

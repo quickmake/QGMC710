@@ -1,4 +1,4 @@
-require "bit"
+--require "bit"
 --**********************************************************************************************************--
 -- PC Driver for QGMC710
 -- Author: QuickMake 
@@ -49,7 +49,6 @@ if PLANE_ICAO == "TBM9" then
 	dataref("CRS1", "tbm900/knobs/ap/crs1", "writable")
     dataref("CRS2", "tbm900/knobs/ap/crs2", "writable")
 	dataref("ALT", "tbm900/knobs/ap/alt", "writable")
-    --dataref("FPM", "sim/cockpit2/autopilot/vvi_dial_fpm", "writable")
 	------------------------------------------------
 elseif PLANE_ICAO == "EPIC" then
 	DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
@@ -71,12 +70,18 @@ elseif PLANE_ICAO == "EPIC" then
 	-------  Dataref -------------------------------
 	dataref("HDG", "sim/cockpit/autopilot/heading", "writable")
 	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
+    dataref("CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
 	dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
 	------------------------------------------------
 else
     return
 end
+
+--How many spins per second  is considered FAST?
+local FastTurnsPerSecond = 5
+
 ------------------------ End Edit-----------------------------------------------
+--You shouldnt need to change anything below-----------------------------------
 
 local device = hid_open(0x0483, 0x5650)
 if device == nil then
@@ -126,14 +131,7 @@ end
 
 
 
---How many degrees should the value jump each time if your spinning fast?
-local FastDegrees = 10
 
---How many spins per second  is considered FAST?
-local FastTurnsPerSecond = 5
-
-
---You shouldnt need to change anything below-----------------------------------
 
 --OBS1TurnTimes is used for both OBS1 and OBS2 to store times since each turn
 local TurnTimes = {}
@@ -141,6 +139,8 @@ local HDG_NumberUpTurns = 1
 local HDG_NumberDownTurns = 1
 local CRS1_NumberUpTurns = 1
 local CRS1_NumberDownTurns = 1
+local CRS2_NumberUpTurns = 1
+local CRS2_NumberDownTurns = 1
 local ALT_NumberUpTurns = 1
 local ALT_NumberDownTurns = 1
 
@@ -151,14 +151,14 @@ for i = 1, FastTurnsPerSecond do
 end
 
 
-function Rotary_Is_Fast(NumberUpTurns, FastTurnPS)
+function Rotary_Is_Fast(NumberUpTurns)
     local TimeNow = os.clock()
     TurnTimes[NumberUpTurns] = TimeNow
 
     local i = 1
     local ItsFast = 1
 
-    for i = 1, FastTurnPS do
+    for i = 1, FastTurnsPerSecond do
         if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
             ItsFast = 1
         else
@@ -167,17 +167,17 @@ function Rotary_Is_Fast(NumberUpTurns, FastTurnPS)
     end
 
     NumberUpTurns = NumberUpTurns + 1
-    if NumberUpTurns > FastTurnPS then
+    if NumberUpTurns > FastTurnsPerSecond then
         NumberUpTurns = 1
     end
     return ItsFast, NumberUpTurns
 end
 
-function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastTurnPS, FastStep)
+function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastStep)
     NumberDownTurns = 1
     local ItsFast = 1
 
-    ItsFast, NumberUpTurns = Rotary_Is_Fast(NumberUpTurns, FastTurnPS)
+    ItsFast, NumberUpTurns = Rotary_Is_Fast(NumberUpTurns)
 
     if ItsFast == 1 then
         coredata = coredata + FastStep
@@ -187,11 +187,11 @@ function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastTurnPS, 
     return coredata, NumberUpTurns, NumberDownTurns
 end
 
-function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastTurnPS, FastStep)
+function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastStep)
     HDG_NumberUpTurns = 1
     local ItsFast = 1
     
-    ItsFast, NumberDownTurns = Rotary_Is_Fast(NumberDownTurns, FastTurnPS)
+    ItsFast, NumberDownTurns = Rotary_Is_Fast(NumberDownTurns)
 
     if ItsFast == 1 then
         coredata = coredata - FastStep
@@ -202,33 +202,43 @@ function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastTurnPS, 
 end
 
 function HDG_Increment()
-    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 5, 10)
+    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 10)
 end
 
 function HDG_Decrement()
-	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 5, 10)
+	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 10)
 end
 
 function CRS1_Increment()
-	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 5, 10)
+	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 10)
 end
 
 function CRS1_Decrement()
-	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 5, 10)
+	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 10)
+end
+
+function CRS2_Increment()
+    CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns = Rotary_Increment(CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns, 10)
+end
+
+function CRS2_Decrement()
+    CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns = Rotary_Decrement(CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns, 10)
 end
 
 function ALT_Increment()
-	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 5, 100)
+	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 100)
 end
 
 function ALT_Decrement()
-	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 5, 100)
+	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 100)
 end
 
 create_command("FlyWithLua/QGMC710/HDG_INC", "HDG INC speed up.", "HDG_Increment()", "", "HDG = HDG % 360 ")
 create_command("FlyWithLua/QGMC710/HDG_DEC", "HDG DEC speed up.", "HDG_Decrement()", "", "HDG = HDG % 360 ")
 create_command("FlyWithLua/QGMC710/CRS1_INC", "CRS1 INC speed up.", "CRS1_Increment()", "", "CRS1 = CRS1 % 360 ")
 create_command("FlyWithLua/QGMC710/CRS1_DEC", "CRS1 DEC speed up.", "CRS1_Decrement()", "", "CRS1 = CRS1 % 360 ")
+create_command("FlyWithLua/QGMC710/CRS2_INC", "CRS2 INC speed up.", "CRS2_Increment()", "", "CRS2 = CRS2 % 360 ")
+create_command("FlyWithLua/QGMC710/CRS2_DEC", "CRS2 DEC speed up.", "CRS2_Decrement()", "", "CRS2 = CRS2 % 360 ")
 create_command("FlyWithLua/QGMC710/ALT_INC", "ALT INC speed up.", "ALT_Increment()", "", "")
 create_command("FlyWithLua/QGMC710/ALT_DEC", "ALT DEC speed up.", "ALT_Decrement()", "", "")
 

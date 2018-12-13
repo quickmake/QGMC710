@@ -173,7 +173,7 @@ function Rotary_Is_Fast(NumberUpTurns)
     return ItsFast, NumberUpTurns
 end
 
-function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastStep)
+function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastStep, SlowStep)
     NumberDownTurns = 1
     local ItsFast = 1
 
@@ -182,12 +182,12 @@ function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastStep)
     if ItsFast == 1 then
         coredata = coredata + FastStep
     else
-        coredata = coredata + 1
+        coredata = coredata + SlowStep
     end
     return coredata, NumberUpTurns, NumberDownTurns
 end
 
-function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastStep)
+function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastStep, SlowStep)
     HDG_NumberUpTurns = 1
     local ItsFast = 1
     
@@ -196,41 +196,41 @@ function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastStep)
     if ItsFast == 1 then
         coredata = coredata - FastStep
     else
-        coredata = coredata - 1
+        coredata = coredata - SlowStep
     end
     return coredata, NumberDownTurns, NumberUpTurns
 end
 
 function HDG_Increment()
-    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 10)
+    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 10, 1)
 end
 
 function HDG_Decrement()
-	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 10)
+	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 10, 1)
 end
 
 function CRS1_Increment()
-	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 10)
+	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 10, 1)
 end
 
 function CRS1_Decrement()
-	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 10)
+	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 10, 1)
 end
 
 function CRS2_Increment()
-    CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns = Rotary_Increment(CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns, 10)
+    CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns = Rotary_Increment(CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns, 10, 1)
 end
 
 function CRS2_Decrement()
-    CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns = Rotary_Decrement(CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns, 10)
+    CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns = Rotary_Decrement(CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns, 10, 1)
 end
 
 function ALT_Increment()
-	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 100)
+	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 500, 100)
 end
 
 function ALT_Decrement()
-	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 100)
+	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 500, 100)
 end
 
 create_command("FlyWithLua/QGMC710/HDG_INC", "HDG INC speed up.", "HDG_Increment()", "", "HDG = HDG % 360 ")

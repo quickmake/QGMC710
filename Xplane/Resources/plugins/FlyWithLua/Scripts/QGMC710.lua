@@ -1,14 +1,25 @@
 require "bit"
---*****************************************************--
--- Driver for QGMC710 for Epic E1000
--- QuickMake mail:409050332@qq.com
---Build:2018-12-6
+--**********************************************************************************************************--
+-- PC Driver for QGMC710
+-- Author: QuickMake 
+-- Email:  409050332@qq.com
+-- Website: https://space.bilibili.com/323386663/
+-- Build:  2018-12-6
 
--- Send 2 bytes
--- B7  B6  B5 B4   B3   B2   B1 B0        B7 B6  B5   B4   B3   B2   B1  B0
--- BL  FLC VS YD XFR_R BANK NAV HDG       X  X	 VNV  ALT  AP  XFR_L BC  APR
---BL:backlight  1 =PC control ; 0=Manual control
---When BL=1 , NEXT byte  B7 B6   is the  bright value  0-3
+-- Send 3 Bytes:
+-- 1st Byte
+---- B7  B6  B5 B4   B3   B2  B1  B0           
+---- BL  FLC VS YD XFR_R BANK NAV HDG              
+-- 2nd Byte
+---- B7 B6  B5   B4   B3   B2  B1  B0
+---- X  X  VNV  ALT  AP  XFR_L BC  APR
+-- 3rd Byte
+---- B7 B6 B5 B4 B3 B2 B1 B0
+----  Brightness
+--
+-- Notes:
+-- BL:backlight  1=PC control ; 0=Manual control
+---- When BL=1 , 3rd byte is the brightness value  0-255
 
 --**********************Copyright***********************--
 

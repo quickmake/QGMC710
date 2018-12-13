@@ -141,16 +141,18 @@ Button 12: tbm900/actuators/ap/vnv
 Button 13: tbm900/actuators/ap/spd
 Button 14: tbm900/actuators/ap/hdg_sync
 Button 15: tbm900/actuators/ap/crs1_dr
-Button 16: 
+Button 16: sim/GPS/g1000n3_hdg_sync
 Button 17: tbm900/actuators/ap/crs2_dr
 Button 18: FlyWithLua/QGMC710/HDG_DEC
 Button 19: FlyWithLua/QGMC710/HDG_INC
+Button 20: FlyWithLua/QGMC710/CRS1_DEC
+Button 21: FlyWithLua/QGMC710/CRS1_INC
 Button 22: FlyWithLua/QGMC710/ALT_DEC
 Button 23: FlyWithLua/QGMC710/ALT_INC
 Button 24: tbm900/actuators/ap/nose_down
 Button 25: tbm900/actuators/ap/nose_up
-Button 26: tbm900/actuators/ap/nose_down
-Button 27: tbm900/actuators/ap/nose_up
+Button 26: FlyWithLua/QGMC710/CRS2_DEC
+Button 27: FlyWithLua/QGMC710/CRS2_INC
 
 
 # FORMAT FOR HAT SWITCHES:

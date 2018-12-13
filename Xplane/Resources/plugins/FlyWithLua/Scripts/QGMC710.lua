@@ -38,7 +38,7 @@ if PLANE_ICAO == "TBM9" then
 	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
 	dataref("ALT", "tbm900/knobs/ap/alt", "writable")
 	------------------------------------------------
-else
+elseif PLANE_ICAO == "EPIC" then
 	DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
 	DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
 	DataRef("vs_led", "sim/cockpit2/autopilot/vvi_status")
@@ -60,6 +60,8 @@ else
 	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
 	dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
 	------------------------------------------------
+else
+    return
 end
 ------------------------ End Edit-----------------------------------------------
 
@@ -74,11 +76,11 @@ else
 end
 
 
-sendbytes_old = {0x00, 0x04} --bytes last send
+sendbytes_old = {0x00, 0x04, 0x00} --bytes last send
 
 
 function LED_UPD()
-    local sendbytes = {0x00, 0x00} --bytes will send
+    local sendbytes = {0x00, 0x00, 0x00} --bytes will send
 
 	if flc_led > 0 then sendbytes[1] = sendbytes[1] + 0x40  end
 	if vs_led > 0 then sendbytes[1] = sendbytes[1] + 0x20 end
@@ -95,17 +97,17 @@ function LED_UPD()
 	if bc_led > 0 then sendbytes[2] = sendbytes[2] + 0x02 end
 	if apr_led > 0 then sendbytes[2] = sendbytes[2] + 0x01 end
 
-	local led_br = math.floor(cockpit_led *3.0)
+	local led_br = math.floor(cockpit_led *255.0)
 
     sendbytes[1] = sendbytes[1] + 0x80
-    local led_br_bits = bit.lshift(led_br, 6)
-    sendbytes[2] = sendbytes[2] + led_br_bits
+    sendbytes[3] = led_br
 
 	--send data
-	if (sendbytes[1] ~= sendbytes_old[1] or sendbytes[2] ~= sendbytes_old[2]) then
-		hid_write(device, 0, sendbytes[1], sendbytes[2])
+	if (sendbytes[1] ~= sendbytes_old[1] or sendbytes[2] ~= sendbytes_old[2] or sendbytes[3] ~= sendbytes_old[3]) then
+		hid_write(device, 0, sendbytes[1], sendbytes[2], sendbytes[3])
 		sendbytes_old[1] = sendbytes[1]
 		sendbytes_old[2] = sendbytes[2]
+        sendbytes_old[3] = sendbytes[3]
 	end
 end
 

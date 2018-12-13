@@ -35,8 +35,10 @@ if PLANE_ICAO == "TBM9" then
 
 	-------  Dataref for rotary switches -----------
 	dataref("HDG", "tbm900/knobs/ap/hdg", "writable")
-	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
+	dataref("CRS1", "tbm900/knobs/ap/crs1", "writable")
+    dataref("CRS2", "tbm900/knobs/ap/crs2", "writable")
 	dataref("ALT", "tbm900/knobs/ap/alt", "writable")
+    --dataref("FPM", "sim/cockpit2/autopilot/vvi_dial_fpm", "writable")
 	------------------------------------------------
 elseif PLANE_ICAO == "EPIC" then
 	DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
@@ -65,7 +67,7 @@ else
 end
 ------------------------ End Edit-----------------------------------------------
 
-device = hid_open(0x0483, 0x5650)
+local device = hid_open(0x0483, 0x5650)
 if device == nil then
 	-- print("Oh, no,you not have a QGMC710 hardware!")
 	XPLMSpeakString("Oh, no! You not have a hardware!")
@@ -76,7 +78,7 @@ else
 end
 
 
-sendbytes_old = {0x00, 0x04, 0x00} --bytes last send
+local sendbytes_old = {0x00, 0x04, 0x00} --bytes last send
 
 
 function LED_UPD()
@@ -114,24 +116,22 @@ end
 
 
 --How many degrees should the value jump each time if your spinning fast?
-FastDegrees = 8
+local FastDegrees = 10
 
 --How many spins per second  is considered FAST?
-FastTurnsPerSecond = 12
+local FastTurnsPerSecond = 5
 
---How many setp per ALT is considered fast?
-ALT_Fast_Step = 100
 
 --You shouldnt need to change anything below-----------------------------------
 
 --OBS1TurnTimes is used for both OBS1 and OBS2 to store times since each turn
-TurnTimes = {}
-HDG_NumberUpTurns = 1
-HDG_NumberDownTurns = 1
-CRS1_NumberUpTurns = 1
-CRS1_NumberDownTurns = 1
-ALT_NumberUpTurns = 1
-ALT_NumberDownTurns = 1
+local TurnTimes = {}
+local HDG_NumberUpTurns = 1
+local HDG_NumberDownTurns = 1
+local CRS1_NumberUpTurns = 1
+local CRS1_NumberDownTurns = 1
+local ALT_NumberUpTurns = 1
+local ALT_NumberDownTurns = 1
 
 local i = 1
 
@@ -139,180 +139,87 @@ for i = 1, FastTurnsPerSecond do
 	TurnTimes[i] = 1
 end
 
+
+function Rotary_Is_Fast(NumberUpTurns, FastTurnPS)
+    local TimeNow = os.clock()
+    TurnTimes[NumberUpTurns] = TimeNow
+
+    local i = 1
+    local ItsFast = 1
+
+    for i = 1, FastTurnPS do
+        if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
+            ItsFast = 1
+        else
+            ItsFast = 0
+        end
+    end
+
+    NumberUpTurns = NumberUpTurns + 1
+    if NumberUpTurns > FastTurnPS then
+        NumberUpTurns = 1
+    end
+    return ItsFast, NumberUpTurns
+end
+
+function Rotary_Increment(coredata, NumberUpTurns, NumberDownTurns, FastTurnPS, FastStep)
+    NumberDownTurns = 1
+    local ItsFast = 1
+
+    ItsFast, NumberUpTurns = Rotary_Is_Fast(NumberUpTurns, FastTurnPS)
+
+    if ItsFast == 1 then
+        coredata = coredata + FastStep
+    else
+        coredata = coredata + 1
+    end
+    return coredata, NumberUpTurns, NumberDownTurns
+end
+
+function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastTurnPS, FastStep)
+    HDG_NumberUpTurns = 1
+    local ItsFast = 1
+    
+    ItsFast, NumberDownTurns = Rotary_Is_Fast(NumberDownTurns, FastTurnPS)
+
+    if ItsFast == 1 then
+        coredata = coredata - FastStep
+    else
+        coredata = coredata - 1
+    end
+    return coredata, NumberDownTurns, NumberUpTurns
+end
+
 function HDG_Increment()
-	HDG_NumberDownTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[HDG_NumberUpTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	HDG_NumberUpTurns = HDG_NumberUpTurns + 1
-	if HDG_NumberUpTurns > FastTurnsPerSecond then
-		HDG_NumberUpTurns = 1
-	end
-
-	if ItsFast == 1 then
-		HDG = HDG + FastDegrees
-	else
-		HDG = HDG + 1
-	end
+    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 5, 10)
 end
 
 function HDG_Decrement()
-	HDG_NumberUpTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[HDG_NumberDownTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	HDG_NumberDownTurns = HDG_NumberDownTurns + 1
-	if HDG_NumberDownTurns > FastTurnsPerSecond then
-		HDG_NumberDownTurns = 1
-	end
-
-	if ItsFast == 1 then
-		HDG = HDG - FastDegrees
-	else
-		HDG = HDG - 1
-	end
+	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 5, 10)
 end
 
 function CRS1_Increment()
-	CRS1_NumberDownTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[CRS1_NumberUpTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	CRS1_NumberUpTurns = CRS1_NumberUpTurns + 1
-	if CRS1_NumberUpTurns > FastTurnsPerSecond then
-		CRS1_NumberUpTurns = 1
-	end
-
-	if ItsFast == 1 then
-		CRS1 = CRS1 + FastDegrees
-	else
-		CRS1 = CRS1 + 1
-	end
+	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 5, 10)
 end
 
 function CRS1_Decrement()
-	CRS1_NumberUpTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[CRS1_NumberDownTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	CRS1_NumberDownTurns = CRS1_NumberDownTurns + 1
-	if CRS1_NumberDownTurns > FastTurnsPerSecond then
-		CRS1_NumberDownTurns = 1
-	end
-
-	if ItsFast == 1 then
-		CRS1 = CRS1 - FastDegrees
-	else
-		CRS1 = CRS1 - 1
-	end
+	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 5, 10)
 end
 
 function ALT_Increment()
-	ALT_NumberDownTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[ALT_NumberUpTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	ALT_NumberUpTurns = ALT_NumberUpTurns + 1
-	if ALT_NumberUpTurns > FastTurnsPerSecond then
-		ALT_NumberUpTurns = 1
-	end
-
-	if ItsFast == 1 then
-		ALT = ALT + ALT_Fast_Step
-	else
-		ALT = ALT + 10
-	end
+	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 5, 100)
 end
 
 function ALT_Decrement()
-	ALT_NumberUpTurns = 1
-	local TimeNow = os.clock()
-	TurnTimes[ALT_NumberDownTurns] = TimeNow
-
-	local i = 1
-	local ItsFast = 1
-
-	for i = 1, FastTurnsPerSecond do
-		if (TurnTimes[i] + 1 >= TimeNow) and (ItsFast == 1) then
-			ItsFast = 1
-		else
-			ItsFast = 0
-		end
-	end
-
-	ALT_NumberDownTurns = ALT_NumberDownTurns + 1
-	if ALT_NumberDownTurns > FastTurnsPerSecond then
-		ALT_NumberDownTurns = 1
-	end
-
-	if ItsFast == 1 then
-		ALT = ALT - ALT_Fast_Step
-	else
-		ALT = ALT - 10
-	end
+	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 5, 100)
 end
 
 create_command("FlyWithLua/QGMC710/HDG_INC", "HDG INC speed up.", "HDG_Increment()", "", "HDG = HDG % 360 ")
 create_command("FlyWithLua/QGMC710/HDG_DEC", "HDG DEC speed up.", "HDG_Decrement()", "", "HDG = HDG % 360 ")
 create_command("FlyWithLua/QGMC710/CRS1_INC", "CRS1 INC speed up.", "CRS1_Increment()", "", "CRS1 = CRS1 % 360 ")
 create_command("FlyWithLua/QGMC710/CRS1_DEC", "CRS1 DEC speed up.", "CRS1_Decrement()", "", "CRS1 = CRS1 % 360 ")
-create_command("FlyWithLua/QGMC710/ALT_INC", "ALT INC speed up.", "ALT_Increment()", "", "ALT = ALT % 360")
-create_command("FlyWithLua/QGMC710/ALT_DEC", "ALT DEC speed up.", "ALT_Decrement()", "", "ALT = ALT % 360")
+create_command("FlyWithLua/QGMC710/ALT_INC", "ALT INC speed up.", "ALT_Increment()", "", "")
+create_command("FlyWithLua/QGMC710/ALT_DEC", "ALT DEC speed up.", "ALT_Decrement()", "", "")
 
 
 do_every_frame("LED_UPD()")

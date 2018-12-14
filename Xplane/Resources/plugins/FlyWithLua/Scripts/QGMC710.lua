@@ -27,8 +27,11 @@
 
 ----------------------  Edit the  DataRef for different Aircraft -----------------------
 
+-------  Common Dataref -------------------------------
+DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
+
 if PLANE_ICAO == "TBM9" then
-	DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
+	
 	DataRef("flc_led", "tbm900/lights/ap/flc")
 	DataRef("vs_led", "tbm900/lights/ap/vs")
 	DataRef("yd_led", "tbm900/lights/ap/yd")
@@ -49,9 +52,29 @@ if PLANE_ICAO == "TBM9" then
 	dataref("CRS1", "tbm900/knobs/ap/crs1", "writable")
     dataref("CRS2", "tbm900/knobs/ap/crs2", "writable")
 	dataref("ALT", "tbm900/knobs/ap/alt", "writable")
-	------------------------------------------------
-elseif PLANE_ICAO == "EPIC" then
-	DataRef("cockpit_led", "sim/cockpit/electrical/cockpit_lights")
+elseif PLANE_ICAO == "C172" then
+
+    DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
+    DataRef("vs_led", "sim/cockpit2/autopilot/vvi_status")
+    DataRef("yd_led", "sim/cockpit/switches/yaw_damper_on")
+    DataRef("xfr_r_led", "sim/cockpit2/autopilot/nav_status")
+    DataRef("bank_led", "sim/cockpit2/autopilot/heading_status")
+    DataRef("nav_led", "sim/cockpit2/autopilot/nav_status")
+    DataRef("hdg_led", "sim/cockpit2/autopilot/heading_status")
+
+    DataRef("vnv_led", "sim/cockpit2/autopilot/vnav_status")
+    DataRef("alt_led", "sim/cockpit2/autopilot/altitude_hold_status")
+    DataRef("ap_led", "sim/cockpit2/autopilot/servos_on")
+    DataRef("xfr_l_led", "sim/cockpit2/autopilot/nav_status")
+    DataRef("bc_led", "sim/cockpit2/autopilot/backcourse_status")
+    DataRef("apr_led", "sim/cockpit2/autopilot/approach_status")
+
+    -------  Dataref -------------------------------
+    dataref("HDG", "sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "writable")
+    dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
+    dataref("CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
+    dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
+else
 	DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
 	DataRef("vs_led", "sim/cockpit2/autopilot/vvi_status")
 	DataRef("yd_led", "sim/cockpit/switches/yaw_damper_on")
@@ -72,9 +95,6 @@ elseif PLANE_ICAO == "EPIC" then
 	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
     dataref("CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
 	dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
-	------------------------------------------------
-else
-    return
 end
 
 --How many spins per second  is considered FAST?
@@ -117,8 +137,11 @@ function LED_UPD()
 
 	local led_br = math.floor(cockpit_led *255.0)
 
-    sendbytes[1] = sendbytes[1] + 0x80
     sendbytes[3] = led_br
+    --switch back to manual control by default
+    if (sendbytes[3] ~= sendbytes_old[3]) then
+        sendbytes[1] = sendbytes[1] + 0x80
+    end
 
 	--send data
 	if (sendbytes[1] ~= sendbytes_old[1] or sendbytes[2] ~= sendbytes_old[2] or sendbytes[3] ~= sendbytes_old[3]) then

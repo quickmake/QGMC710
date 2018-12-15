@@ -1,7 +1,7 @@
 # QGMC710
 Garmin GMC710 Flight Simulator Panel driver
 
-Test Video: https://www.bilibili.com/video/av37257957
+Test Video: https://www.bilibili.com/video/av37257957 <br>
 Cpuwolf大神测试视频: https://www.bilibili.com/video/av37909998/
 
 QGMC710 使用手册<br>

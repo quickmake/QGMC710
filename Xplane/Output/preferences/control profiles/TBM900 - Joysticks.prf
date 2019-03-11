@@ -32,27 +32,31 @@ _joy_unique_id7 VID:1103PID:1028
 _joy_unique_id8 VID:1678PID:242
 _joy_unique_id9 VID:1103PID:65535
 _joy_unique_id10 VID:1155PID:22096
+_joy_unique_id11 VID:5840PID:2697
+_joy_unique_id12 VID:255PID:326
 _joy_location0 \\?\hid#vid_06a3&pid_075c#6&8b3686&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
-_joy_location1 \\?\hid#{00001124-0000-1000-8000-00805f9b34fb}_vid&0002057e_pid&0306#9&2cc02a71&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+_joy_location1 \\?\hid#{00001124-0000-1000-8000-00805f9b34fb}_vid&0002057e_pid&0306#a&36a88b76&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location3 \\?\hid#vid_068e&pid_00f2#7&595e123&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location4 \\?\hid#vid_044f&pid_0402#7&24a779b6&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
-_joy_location5 \\?\hid#vid_044f&pid_0404#7&26bb166d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+_joy_location5 \\?\hid#vid_044f&pid_0404#8&1fab5c19&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location6 \\?\hid#vid_044f&pid_0402#7&b779d92&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location7 \\?\hid#vid_044f&pid_0404#7&192834c6&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location8 \\?\hid#vid_068e&pid_00f2#7&1be040b7&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location9 \\?\hid#thrustmastergamedevice#2&1262c57e&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_location10 \\?\hid#vid_0483&pid_5650#6&315d1153&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+_joy_location11 \\?\hid#vid_16d0&pid_0a89#6&251483f4&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+_joy_location12 \\?\hid#vid_00ff&pid_0146&col01#6&1dc440c0&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
 _joy_lru_time0 1539565616
-_joy_lru_time1 1545086800
+_joy_lru_time1 1551942362
 _joy_lru_time2 1499865406
 _joy_lru_time3 1540168494
 _joy_lru_time4 1540168494
-_joy_lru_time5 1540168494
-_joy_lru_time6 1545086800
-_joy_lru_time7 1545086800
-_joy_lru_time8 1545086800
-_joy_lru_time9 1545086822
-_joy_lru_time10 1545086803
+_joy_lru_time5 1546426322
+_joy_lru_time6 1550739429
+_joy_lru_time7 1552217671
+_joy_lru_time8 1550739429
+_joy_lru_time9 1552217680
+_joy_lru_time10 1550739429
 _joy_lru_time11 0
 _joy_lru_time12 0
 _joy_lru_time13 0
@@ -837,8 +841,8 @@ _joy_lo_raw_dat271 9900000256.000000
 _joy_lo_raw_dat272 9900000256.000000
 _joy_lo_raw_dat273 9900000256.000000
 _joy_lo_raw_dat274 9900000256.000000
-_joy_lo_raw_dat275 9900000256.000000
-_joy_lo_raw_dat276 9900000256.000000
+_joy_lo_raw_dat275 0.317693
+_joy_lo_raw_dat276 0.375367
 _joy_lo_raw_dat277 9900000256.000000
 _joy_lo_raw_dat278 9900000256.000000
 _joy_lo_raw_dat279 9900000256.000000
@@ -862,7 +866,7 @@ _joy_lo_raw_dat296 9900000256.000000
 _joy_lo_raw_dat297 9900000256.000000
 _joy_lo_raw_dat298 9900000256.000000
 _joy_lo_raw_dat299 9900000256.000000
-_joy_lo_raw_dat300 9900000256.000000
+_joy_lo_raw_dat300 0.000000
 _joy_lo_raw_dat301 9900000256.000000
 _joy_lo_raw_dat302 9900000256.000000
 _joy_lo_raw_dat303 9900000256.000000
@@ -1262,7 +1266,7 @@ _joy_hi_raw_dat196 -9900000256.000000
 _joy_hi_raw_dat197 -9900000256.000000
 _joy_hi_raw_dat198 -9900000256.000000
 _joy_hi_raw_dat199 -9900000256.000000
-_joy_hi_raw_dat200 0.996078
+_joy_hi_raw_dat200 1.000000
 _joy_hi_raw_dat201 1.000000
 _joy_hi_raw_dat202 1.000000
 _joy_hi_raw_dat203 -9900000256.000000
@@ -1337,8 +1341,8 @@ _joy_hi_raw_dat271 -9900000256.000000
 _joy_hi_raw_dat272 -9900000256.000000
 _joy_hi_raw_dat273 -9900000256.000000
 _joy_hi_raw_dat274 -9900000256.000000
-_joy_hi_raw_dat275 -9900000256.000000
-_joy_hi_raw_dat276 -9900000256.000000
+_joy_hi_raw_dat275 0.694037
+_joy_hi_raw_dat276 0.717498
 _joy_hi_raw_dat277 -9900000256.000000
 _joy_hi_raw_dat278 -9900000256.000000
 _joy_hi_raw_dat279 -9900000256.000000
@@ -1362,7 +1366,7 @@ _joy_hi_raw_dat296 -9900000256.000000
 _joy_hi_raw_dat297 -9900000256.000000
 _joy_hi_raw_dat298 -9900000256.000000
 _joy_hi_raw_dat299 -9900000256.000000
-_joy_hi_raw_dat300 -9900000256.000000
+_joy_hi_raw_dat300 1.000000
 _joy_hi_raw_dat301 -9900000256.000000
 _joy_hi_raw_dat302 -9900000256.000000
 _joy_hi_raw_dat303 -9900000256.000000
@@ -1837,8 +1841,8 @@ _joy_axis_is_calibrated_override271 0
 _joy_axis_is_calibrated_override272 0
 _joy_axis_is_calibrated_override273 0
 _joy_axis_is_calibrated_override274 0
-_joy_axis_is_calibrated_override275 0
-_joy_axis_is_calibrated_override276 0
+_joy_axis_is_calibrated_override275 1
+_joy_axis_is_calibrated_override276 1
 _joy_axis_is_calibrated_override277 0
 _joy_axis_is_calibrated_override278 0
 _joy_axis_is_calibrated_override279 0
@@ -2562,7 +2566,7 @@ _joy_axis_wants_relaxed_calibration496 0
 _joy_axis_wants_relaxed_calibration497 0
 _joy_axis_wants_relaxed_calibration498 0
 _joy_axis_wants_relaxed_calibration499 0
-_joy_center0 0.000000
+_joy_center0 0.040000
 _joy_center1 0.000489
 _joy_center2 0.000000
 _joy_center3 0.000000
@@ -2662,8 +2666,8 @@ _joy_center96 0.000000
 _joy_center97 0.000000
 _joy_center98 0.000000
 _joy_center99 0.000000
-_joy_center100 0.000015
-_joy_center101 -0.003159
+_joy_center100 -0.012375
+_joy_center101 -0.017075
 _joy_center102 0.000000
 _joy_center103 0.000000
 _joy_center104 0.000000
@@ -2712,8 +2716,8 @@ _joy_center146 0.000000
 _joy_center147 0.000000
 _joy_center148 0.000000
 _joy_center149 0.000000
-_joy_center150 -0.015374
-_joy_center151 0.004905
+_joy_center150 -0.007797
+_joy_center151 -0.012009
 _joy_center152 0.000000
 _joy_center153 0.000000
 _joy_center154 0.000000
@@ -2762,7 +2766,7 @@ _joy_center196 0.000000
 _joy_center197 0.000000
 _joy_center198 0.000000
 _joy_center199 0.000000
-_joy_center200 -0.007999
+_joy_center200 -0.011952
 _joy_center201 0.000000
 _joy_center202 0.000000
 _joy_center203 0.000000
@@ -4063,9 +4067,9 @@ _joy_axis_delta_sec497 0.000000
 _joy_axis_delta_sec498 0.000000
 _joy_axis_delta_sec499 0.000000
 _joy_prat0 0.000000
-_joy_prat1 0.000000
+_joy_prat1 1.000000
 _joy_prat2 0.000000
-_joy_prat3 0.000000
+_joy_prat3 0.400000
 _joy_prat4 0.000000
 _joy_prat5 0.000000
 _joy_prat6 0.000000
@@ -4128,9 +4132,9 @@ _joy_prat62 0.000000
 _joy_prat63 0.000000
 _joy_prat64 0.000000
 _joy_damp0 0.000000
-_joy_damp1 0.000000
-_joy_damp2 0.000000
-_joy_damp3 0.000000
+_joy_damp1 0.100000
+_joy_damp2 1.000000
+_joy_damp3 1.000000
 _joy_damp4 0.000000
 _joy_damp5 0.000000
 _joy_damp6 0.000000
@@ -4532,8 +4536,8 @@ _joy_AXIS_use271 0
 _joy_AXIS_use272 0
 _joy_AXIS_use273 0
 _joy_AXIS_use274 0
-_joy_AXIS_use275 0
-_joy_AXIS_use276 0
+_joy_AXIS_use275 1
+_joy_AXIS_use276 2
 _joy_AXIS_use277 0
 _joy_AXIS_use278 0
 _joy_AXIS_use279 0
@@ -5402,18 +5406,18 @@ _joy_BUTN_use636 sim/none/none
 _joy_BUTN_use637 sim/none/none
 _joy_BUTN_use638 sim/none/none
 _joy_BUTN_use639 sim/none/none
-_joy_BUTN_use640 SRS/X-Camera/Select_View_ID_2
-_joy_BUTN_use_desc640 Selects the camera with a view ID of 2
-_joy_BUTN_use641 sim/weapons/fire_any_shell
+_joy_BUTN_use640 sim/view/quick_look_1
+_joy_BUTN_use641 tbm900/actuators/ap/disc
+_joy_BUTN_use_desc641 Push AP/TRIM DISC switch
 _joy_BUTN_use642 sim/instruments/timer_cycle
 _joy_BUTN_use643 planecommand/listen_for_command
 _joy_BUTN_use_desc643 When this button is pressed, PlaneCommand will listen for your command.
 _joy_BUTN_use644 sim/none/none
 _joy_BUTN_use645 sim/none/none
 _joy_BUTN_use646 sim/general/up
-_joy_BUTN_use647 sim/general/right
+_joy_BUTN_use647 sim/view/quick_look_6
 _joy_BUTN_use648 sim/general/down
-_joy_BUTN_use649 sim/general/left
+_joy_BUTN_use649 sim/view/quick_look_4
 _joy_BUTN_use650 sim/general/rot_up
 _joy_BUTN_use651 sim/general/rot_right
 _joy_BUTN_use652 sim/general/rot_down
@@ -5909,7 +5913,8 @@ _joy_BUTN_use1134 sim/autopilot/take_off_go_around
 _joy_BUTN_use1135 sim/fuel/fuel_pump_2_on
 _joy_BUTN_use1136 sim/fuel/fuel_pump_1_on
 _joy_BUTN_use1137 sim/none/none
-_joy_BUTN_use1138 sim/none/none
+_joy_BUTN_use1138 tbm900/actuators/elec/starter_down
+_joy_BUTN_use_desc1138 Starter switch abort
 _joy_BUTN_use1139 sim/electrical/APU_on
 _joy_BUTN_use1140 cpuwolf/XTouchDownRecorder/Toggle
 _joy_BUTN_use_desc1140 Toggle TouchDownRecorder Chart
@@ -6221,9 +6226,9 @@ _joy_BUTN_use1445 sim/engines/mixture_down
 _joy_BUTN_use1446 sim/GPS/g1000n3_range_up
 _joy_BUTN_use1447 sim/GPS/g1000n3_range_down
 _joy_BUTN_use1448 tbm900/actuators/elec/ignition_up
-_joy_BUTN_use_desc1448 Ignition switch up
+_joy_BUTN_use_desc1448 IGNITION switch up
 _joy_BUTN_use1449 tbm900/actuators/elec/ignition_down
-_joy_BUTN_use_desc1449 Ignition switch down
+_joy_BUTN_use_desc1449 IGNITION switch down
 _joy_BUTN_use1450 sim/GPS/g1000n3_ent
 _joy_BUTN_use1451 sim/GPS/g1000n3_clr
 _joy_BUTN_use1452 tbm900/actuators/lights/landing_lights_up
@@ -6231,21 +6236,21 @@ _joy_BUTN_use_desc1452 Landing lights switch up
 _joy_BUTN_use1453 tbm900/actuators/lights/landing_lights_down
 _joy_BUTN_use_desc1453 Landing lights switch down
 _joy_BUTN_use1454 sim/autopilot/take_off_go_around
-_joy_BUTN_use1455 sim/none/none
+_joy_BUTN_use1455 sim/view/track-ir_toggle
 _joy_BUTN_use1456 tbm900/actuators/fuel/auto_man
-_joy_BUTN_use_desc1456 Fuel mode toggle
+_joy_BUTN_use_desc1456 Toggle Fuel mode toggle
 _joy_BUTN_use1457 tbm900/actuators/elec/ap_trims_down
 _joy_BUTN_use_desc1457 AP TRIMS switch down
 _joy_BUTN_use1458 tbm900/actuators/elec/starter_down
 _joy_BUTN_use_desc1458 Starter switch abort
-_joy_BUTN_use1459 sim/none/none
+_joy_BUTN_use1459 sim/view/track-ir_toggle
 _joy_BUTN_use1460 cpuwolf/XTouchDownRecorder/Toggle
 _joy_BUTN_use_desc1460 Toggle TouchDownRecorder Chart
 _joy_BUTN_use1461 sim/flight_controls/flaps_up
 _joy_BUTN_use1462 sim/flight_controls/flaps_down
 _joy_BUTN_use1463 sim/flight_controls/brakes_toggle_max
 _joy_BUTN_use1464 tbm900/actuators/ice/inert_sep
-_joy_BUTN_use_desc1464 Toggle inertial separator
+_joy_BUTN_use_desc1464 Toggle Inertial separator
 _joy_BUTN_use1465 sim/replay/replay_controls_toggle
 _joy_BUTN_use1466 tbm900/actuators/fuel/aux_bp_up
 _joy_BUTN_use_desc1466 Auxilliary boost pump switch up
@@ -6326,9 +6331,9 @@ _joy_BUTN_use1538 sim/none/none
 _joy_BUTN_use1539 sim/none/none
 _joy_BUTN_use1540 sim/none/none
 _joy_BUTN_use1541 sim/none/none
-_joy_BUTN_use1542 sim/none/none
+_joy_BUTN_use1542 sim/view/track-ir_toggle
 _joy_BUTN_use1543 tbm900/actuators/fuel/auto_man
-_joy_BUTN_use_desc1543 Fuel mode toggle
+_joy_BUTN_use_desc1543 Toggle Fuel mode toggle
 _joy_BUTN_use1544 sim/none/none
 _joy_BUTN_use1545 sim/none/none
 _joy_BUTN_use1546 sim/none/none
@@ -6341,7 +6346,7 @@ _joy_BUTN_use1552 sim/none/none
 _joy_BUTN_use1553 sim/none/none
 _joy_BUTN_use1554 sim/none/none
 _joy_BUTN_use1555 sim/none/none
-_joy_BUTN_use1556 sim/none/none
+_joy_BUTN_use1556 sim/view/track-ir_toggle
 _joy_BUTN_use1557 sim/none/none
 _joy_BUTN_use1558 sim/none/none
 _joy_BUTN_use1559 sim/none/none
@@ -6432,10 +6437,10 @@ _joy_BUTN_use1622 FlyWithLua/QGMC710/ALT_DEC
 _joy_BUTN_use_desc1622 ALT DEC speed up.
 _joy_BUTN_use1623 FlyWithLua/QGMC710/ALT_INC
 _joy_BUTN_use_desc1623 ALT INC speed up.
-_joy_BUTN_use1624 tbm900/actuators/ap/nose_down
-_joy_BUTN_use_desc1624 Autopilot command: Nose down
-_joy_BUTN_use1625 tbm900/actuators/ap/nose_up
-_joy_BUTN_use_desc1625 Autopilot command: Nose up
+_joy_BUTN_use1624 tbm900/actuators/ap/nose_up
+_joy_BUTN_use_desc1624 Autopilot command: Nose up
+_joy_BUTN_use1625 tbm900/actuators/ap/nose_down
+_joy_BUTN_use_desc1625 Autopilot command: Nose down
 _joy_BUTN_use1626 FlyWithLua/QGMC710/CRS2_DEC
 _joy_BUTN_use_desc1626 CRS2 DEC speed up.
 _joy_BUTN_use1627 FlyWithLua/QGMC710/CRS2_INC
@@ -6572,15 +6577,15 @@ _joy_BUTN_use1756 sim/none/none
 _joy_BUTN_use1757 sim/none/none
 _joy_BUTN_use1758 sim/none/none
 _joy_BUTN_use1759 sim/none/none
-_joy_BUTN_use1760 sim/none/none
+_joy_BUTN_use1760 sim/flight_controls/rudder_trim_left
 _joy_BUTN_use1761 sim/none/none
-_joy_BUTN_use1762 sim/none/none
+_joy_BUTN_use1762 sim/flight_controls/pitch_trim_up
 _joy_BUTN_use1763 sim/none/none
 _joy_BUTN_use1764 sim/none/none
 _joy_BUTN_use1765 sim/none/none
-_joy_BUTN_use1766 sim/none/none
+_joy_BUTN_use1766 sim/flight_controls/rudder_trim_right
 _joy_BUTN_use1767 sim/none/none
-_joy_BUTN_use1768 sim/none/none
+_joy_BUTN_use1768 sim/flight_controls/pitch_trim_down
 _joy_BUTN_use1769 sim/none/none
 _joy_BUTN_use1770 sim/none/none
 _joy_BUTN_use1771 sim/none/none
@@ -6732,44 +6737,77 @@ _joy_BUTN_use1916 sim/none/none
 _joy_BUTN_use1917 sim/none/none
 _joy_BUTN_use1918 sim/none/none
 _joy_BUTN_use1919 sim/none/none
-_joy_BUTN_use1920 sim/none/none
-_joy_BUTN_use1921 sim/none/none
-_joy_BUTN_use1922 sim/none/none
-_joy_BUTN_use1923 sim/none/none
-_joy_BUTN_use1924 sim/none/none
-_joy_BUTN_use1925 sim/none/none
-_joy_BUTN_use1926 sim/none/none
-_joy_BUTN_use1927 sim/none/none
-_joy_BUTN_use1928 sim/none/none
-_joy_BUTN_use1929 sim/none/none
-_joy_BUTN_use1930 sim/none/none
-_joy_BUTN_use1931 sim/none/none
-_joy_BUTN_use1932 sim/none/none
-_joy_BUTN_use1933 sim/none/none
-_joy_BUTN_use1934 sim/none/none
-_joy_BUTN_use1935 sim/none/none
-_joy_BUTN_use1936 sim/none/none
-_joy_BUTN_use1937 sim/none/none
-_joy_BUTN_use1938 sim/none/none
-_joy_BUTN_use1939 sim/none/none
-_joy_BUTN_use1940 sim/none/none
-_joy_BUTN_use1941 sim/none/none
-_joy_BUTN_use1942 sim/none/none
+_joy_BUTN_use1920 tbm900/actuators/lights/landing_lights_ldg
+_joy_BUTN_use_desc1920 Landing lights switch to LDG
+_joy_BUTN_use1921 tbm900/actuators/lights/landing_lights_taxi
+_joy_BUTN_use_desc1921 Landing lights switch to TAXI
+_joy_BUTN_use1922 tbm900/actuators/lights/landing_lights_off
+_joy_BUTN_use_desc1922 Landing lights switch to OFF
+_joy_BUTN_use1923 tbm900/actuators/lights/pulse_syst_off
+_joy_BUTN_use_desc1923 PULSE light system OFF
+_joy_BUTN_use1924 tbm900/actuators/lights/pulse_syst_on
+_joy_BUTN_use_desc1924 PULSE light system ON
+_joy_BUTN_use1925 sim/lights/nav_lights_off
+_joy_BUTN_use1926 sim/lights/nav_lights_on
+_joy_BUTN_use1927 sim/lights/strobe_lights_off
+_joy_BUTN_use1928 sim/lights/strobe_lights_on
+_joy_BUTN_use1929 tbm900/actuators/lights/dimmer_off
+_joy_BUTN_use_desc1929 Cockpit lights dimmer OFF
+_joy_BUTN_use1930 tbm900/actuators/lights/dimmer_on
+_joy_BUTN_use_desc1930 Cockpit lights dimmer ON
+_joy_BUTN_use1931 tbm900/actuators/lights/cabin_off
+_joy_BUTN_use_desc1931 Cabin lights OFF
+_joy_BUTN_use1932 tbm900/actuators/lights/cabin_on
+_joy_BUTN_use_desc1932 Cabin lights ON
+_joy_BUTN_use1933 tbm900/actuators/lights/access
+_joy_BUTN_use_desc1933 Toggle access lights
+_joy_BUTN_use1934 tbm900/actuators/elec/emerg_handle_down
+_joy_BUTN_use_desc1934 Crash bar down
+_joy_BUTN_use1935 tbm900/actuators/elec/emerg_handle_up
+_joy_BUTN_use_desc1935 Crash bar up
+_joy_BUTN_use1936 tbm900/actuators/elec/source_off
+_joy_BUTN_use_desc1936 Set electrical SOURCE switch to OFF
+_joy_BUTN_use1937 tbm900/actuators/elec/source_batt
+_joy_BUTN_use_desc1937 Set electrical SOURCE switch to BATT
+_joy_BUTN_use1938 tbm900/actuators/elec/source_gpu
+_joy_BUTN_use_desc1938 Set electrical SOURCE switch to GPU
+_joy_BUTN_use1939 tbm900/actuators/elec/gen_off
+_joy_BUTN_use_desc1939 Set GENERATOR switch to OFF
+_joy_BUTN_use1940 tbm900/actuators/elec/gen_main
+_joy_BUTN_use_desc1940 Set GENERATOR switch to MAIN
+_joy_BUTN_use1941 tbm900/actuators/elec/gen_stby
+_joy_BUTN_use_desc1941 Set GENERATOR switch to ST-BY
+_joy_BUTN_use1942 tbm900/actuators/elec/starter_up
+_joy_BUTN_use_desc1942 Starter switch up
 _joy_BUTN_use1943 sim/none/none
-_joy_BUTN_use1944 sim/none/none
-_joy_BUTN_use1945 sim/none/none
-_joy_BUTN_use1946 sim/none/none
-_joy_BUTN_use1947 sim/none/none
-_joy_BUTN_use1948 sim/none/none
-_joy_BUTN_use1949 sim/none/none
-_joy_BUTN_use1950 sim/none/none
-_joy_BUTN_use1951 sim/none/none
-_joy_BUTN_use1952 sim/none/none
-_joy_BUTN_use1953 sim/none/none
-_joy_BUTN_use1954 sim/none/none
-_joy_BUTN_use1955 sim/none/none
-_joy_BUTN_use1956 sim/none/none
-_joy_BUTN_use1957 sim/none/none
+_joy_BUTN_use1944 tbm900/actuators/elec/starter_down
+_joy_BUTN_use_desc1944 Starter switch abort
+_joy_BUTN_use1945 tbm900/actuators/elec/ignition_auto
+_joy_BUTN_use_desc1945 IGNITION switch to AUTO
+_joy_BUTN_use1946 tbm900/actuators/elec/ignition_on
+_joy_BUTN_use_desc1946 IGNITION switch to ON
+_joy_BUTN_use1947 tbm900/actuators/elec/ignition_off
+_joy_BUTN_use_desc1947 IGNITION switch to OFF
+_joy_BUTN_use1948 tbm900/actuators/fuel/auto_man_off
+_joy_BUTN_use_desc1948 Fuel mode toggle OFF
+_joy_BUTN_use1949 tbm900/actuators/fuel/auto_man_on
+_joy_BUTN_use_desc1949 Fuel mode toggle ON
+_joy_BUTN_use1950 tbm900/actuators/elec/ap_trims_on
+_joy_BUTN_use_desc1950 Set AP/TRIMS switch to ON
+_joy_BUTN_use1951 tbm900/actuators/elec/ap_trims_ap_off
+_joy_BUTN_use_desc1951 Set AP/TRIMS switch to AP OFF
+_joy_BUTN_use1952 tbm900/actuators/elec/ap_trims_off
+_joy_BUTN_use_desc1952 Set AP/TRIMS switch to OFF
+_joy_BUTN_use1953 tbm900/actuators/elec/aux_bp_off
+_joy_BUTN_use_desc1953 Set AUX BP switch to OFF
+_joy_BUTN_use1954 tbm900/actuators/elec/aux_bp_on
+_joy_BUTN_use_desc1954 Set AUX BP switch to ON
+_joy_BUTN_use1955 tbm900/actuators/elec/aux_bp_auto
+_joy_BUTN_use_desc1955 Set AUX BP switch to AUTO
+_joy_BUTN_use1956 tbm900/actuators/elec/main_gen_reset
+_joy_BUTN_use_desc1956 reset MAIN generator
+_joy_BUTN_use1957 tbm900/actuators/elec/stby_gen_reset
+_joy_BUTN_use_desc1957 reset ST-BY generator
 _joy_BUTN_use1958 sim/none/none
 _joy_BUTN_use1959 sim/none/none
 _joy_BUTN_use1960 sim/none/none
@@ -8100,8 +8138,17 @@ _joy_AXIS_cmnd928 sim/none/none
 _joy_AXIS_cmnd929 sim/none/none
 _joy_AXIS_cmnd930 sim/none/none
 _joy_AXIS_cmnd931 sim/none/none
+_joy_AXIS_cmnd1100 sim/none/none
+_joy_AXIS_cmnd1101 sim/none/none
+_joy_AXIS_cmnd1104 sim/none/none
+_joy_AXIS_cmnd1105 sim/none/none
+_joy_AXIS_cmnd1200 tbm900/actuators/lights/pulse_syst_on
+_joy_AXIS_cmnd_desc1200 PULSE light system ON
+_joy_AXIS_cmnd1201 tbm900/actuators/lights/pulse_syst_on
+_joy_AXIS_cmnd_desc1201 PULSE light system ON
 axis_response_curve150 INTERP_MODE LINEAR | 0.000000 0.000000  | 1.000000 0.701408 
 axis_response_curve151 INTERP_MODE LINEAR | 0.000000 0.000000  | 1.000000 0.701409 
-axis_response_curve200 INTERP_MODE CATMULL_ROM | 0.000000 0.000000  | 0.490437 0.324217  | 1.000000 0.988732 
+axis_response_curve200 INTERP_MODE CATMULL_ROM | 0.000000 0.000000  | 0.545082 0.330187  | 1.000000 0.988732 
 axis_response_curve201 INTERP_MODE CATMULL_ROM | 0.000000 0.000000  | 1.000000 0.498087 
 axis_response_curve202 INTERP_MODE CATMULL_ROM | 0.000000 0.000000  | 1.000000 0.495776 
+axis_response_curve300 INTERP_MODE LINEAR | 0.000000 0.000000  | 0.943989 0.705970  | 1.000000 1.000000 

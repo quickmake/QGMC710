@@ -1,9 +1,43 @@
 # QGMC710
-Garmin GMC710 Flight Simulator Panel driver
+Garmin GMC710 Flight Simulator Panel
 
-Test Video: https://www.bilibili.com/video/av37257957 <br>
-Cpuwolf大神测试视频: https://www.bilibili.com/video/av37909998/
 
+[Test Video]( https://www.bilibili.com/video/av37257957)
+
+####Video by Cpuwolf:(Youtube)
+
+* [ why you need a real MCP for X-Plane? ](  https://youtu.be/bnwsJ89BorU)
+* [hand-on review ]( https://youtu.be/2CzTYQhQLbA)
+* [QGMC710 dismantle](https://youtu.be/2CzTYQhQLbA)
+
+###QGMC710 User Manual
+
+Operating system: win7, win10
+ 
+1.  USB interface plug and play, simulate gamepad mode, compatible with a variety of simulators.
+2.  Connect to the new computer for the first time, the system will automatically install the driver, you need to wait patiently for a while.
+`optional step : button test `
+        The input interface uses the analog game controller buttons, a total of 28 buttons, after connect the computer, the "game controller" "QGMC710" will be found in the control panel, and the property page can be tested to test the button (due to the higher response frequency of the encoding switch, In this test page may not display properly, you can also use other test software to test. If the QGMC710 is not found in the control panel or test software, please unplug the USB and replug it. Of course, the above steps can also jump over.
+
+##### For x-plane you can enter the xplane folder. To copy the script and joystick config file.
+3.  Enter the game and configure the buttons according to the button function.
+4.  It's OK, the QGMC710 can input buttons now. If you want advanced features, the next step.
+
+5.  Corresponding to different simulators, download the driver code, (the host computer code is open source) can also be modified into the driver of your favorite model.
+6.  **Adjust the backlight manually:** Hold down the ALT SEL encoder push button and turn the clockwise or counterclockwise to adjust the backlight. (Because the original machine does not press the function of the code switch, the QGMC710 adds a button, which can also be set to other functions, but the button will be triggered when the backlight is manually adjusted.<br>
+7.  The lua scripts supports backlight on and off, and brightness adjustment 0-255 level, the status of each status indicator.
+
+## If your QGMC710  "HDG",  "CRS1","ALT SEL", "CRS2" encoders not work well , clockwise or counterclockwise turn slowly, in xplane game no response,or lost steps. Please enter the QGMC710_FwUpdate folder.
+
+---
+	
+##Chihese				
+
+Cpuwolf 大神测试视频: https://www.bilibili.com/video/av37909998/
+
+* 夜间背光欣赏:https://www.bilibili.com/video/av46395588
+* 按键设置教程:https://www.bilibili.com/video/av38898695
+		
 QGMC710 使用手册<br>
 操作系统：win7 , win10<br>
 1.USB接口即插即用,免驱动,采用模拟游戏控制器模式,兼容多种模拟器。<br>

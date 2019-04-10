@@ -4,13 +4,13 @@ Garmin GMC710 Flight Simulator Panel
 
 [Test Video]( https://www.bilibili.com/video/av37257957)
 
-####Video by Cpuwolf:(Youtube)
+#### Video by Cpuwolf:(Youtube)
 
 * [ why you need a real MCP for X-Plane? ](  https://youtu.be/bnwsJ89BorU)
 * [hand-on review ]( https://youtu.be/2CzTYQhQLbA)
 * [QGMC710 dismantle](https://youtu.be/2CzTYQhQLbA)
 
-###QGMC710 User Manual
+### QGMC710 User Manual
 
 Operating system: win7, win10
  
@@ -31,7 +31,7 @@ Operating system: win7, win10
 
 ---
 	
-##Chihese				
+## Chihese				
 
 Cpuwolf 大神测试视频: https://www.bilibili.com/video/av37909998/
 

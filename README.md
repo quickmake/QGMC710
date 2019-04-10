@@ -10,6 +10,11 @@ Garmin GMC710 Flight Simulator Panel
 * [hand-on review ]( https://youtu.be/2CzTYQhQLbA)
 * [QGMC710 dismantle](https://youtu.be/2CzTYQhQLbA)
 
+
+Purchase link (chinese taobao.com) https://item.taobao.com/item.htm?spm=a230r.1.14.3.18b63fd9y2cMrM&id=584036361539&ns=1&abbucket=1#detail
+International third party purchasing: https://www.superbuy.com/   and paste the link above
+(Third party ,easy for international purchase,they maybe charge a fee of $8-10,but I'm not sure how they working.)
+
 ### QGMC710 User Manual
 
 Operating system: win7, win10

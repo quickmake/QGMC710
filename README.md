@@ -2,6 +2,7 @@
 Garmin GMC710 Flight Simulator Panel
 
 
+
 [Test Video]( https://www.bilibili.com/video/av37257957)
 
 #### Video by Cpuwolf:(Youtube)
@@ -14,6 +15,8 @@ Garmin GMC710 Flight Simulator Panel
  Purchase link (chinese taobao.com) https://item.taobao.com/item.htm?spm=a230r.1.14.3.18b63fd9y2cMrM&id=584036361539&ns=1&abbucket=1#detail
  
  International third party purchasing: https://www.superbuy.com/   and paste the link above
+ 
+ QuickMake QGMC710 official website: https://x-plane.vip/quickmake/
  
  (Third party ,easy for international purchase,they maybe charge a fee of $8-10,but I'm not sure how they working.)
 

@@ -48,10 +48,10 @@ if PLANE_ICAO == "TBM9" then
 	DataRef("apr_led", "tbm900/lights/ap/apr")
 
 	-------  Dataref for rotary switches -----------
-	dataref("HDG", "tbm900/knobs/ap/hdg", "writable")
-	dataref("CRS1", "tbm900/knobs/ap/crs1", "writable")
-    dataref("CRS2", "tbm900/knobs/ap/crs2", "writable")
-	dataref("ALT", "tbm900/knobs/ap/alt", "writable")
+	dataref("gmc710_HDG", "tbm900/knobs/ap/hdg", "writable")
+	dataref("gmc710_CRS1", "tbm900/knobs/ap/crs1", "writable")
+    dataref("gmc710_CRS2", "tbm900/knobs/ap/crs2", "writable")
+	dataref("gmc710_ALT", "tbm900/knobs/ap/alt", "writable")
 elseif PLANE_ICAO == "C172" then
 
     DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
@@ -70,10 +70,10 @@ elseif PLANE_ICAO == "C172" then
     DataRef("apr_led", "sim/cockpit2/autopilot/approach_status")
 
     -------  Dataref -------------------------------
-    dataref("HDG", "sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "writable")
-    dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
-    dataref("CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
-    dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
+    dataref("gmc710_HDG", "sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "writable")
+    dataref("gmc710_CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
+    dataref("gmc710_CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
+    dataref("gmc710_ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
 else
 	DataRef("flc_led", "sim/cockpit2/autopilot/speed_status")
 	DataRef("vs_led", "sim/cockpit2/autopilot/vvi_status")
@@ -91,10 +91,10 @@ else
 	DataRef("apr_led", "sim/cockpit2/autopilot/approach_status")
 
 	-------  Dataref -------------------------------
-	dataref("HDG", "sim/cockpit/autopilot/heading", "writable")
-	dataref("CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
-    dataref("CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
-	dataref("ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
+	dataref("gmc710_HDG", "sim/cockpit/autopilot/heading", "writable")
+	dataref("gmc710_CRS1", "sim/cockpit/radios/nav1_obs_degm", "writable")
+    dataref("gmc710_CRS2", "sim/cockpit/radios/nav2_obs_degm", "writable")
+	dataref("gmc710_ALT", "sim/cockpit2/autopilot/altitude_dial_ft", "writable")
 end
 
 --How many spins per second  is considered FAST?
@@ -225,41 +225,41 @@ function Rotary_Decrement(coredata, NumberDownTurns, NumberUpTurns, FastStep, Sl
 end
 
 function HDG_Increment()
-    HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 10, 1)
-    HDG = HDG % 360
+    gmc710_HDG, HDG_NumberUpTurns, HDG_NumberDownTurns = Rotary_Increment(gmc710_HDG, HDG_NumberUpTurns, HDG_NumberDownTurns, 10, 1)
+    gmc710_HDG = gmc710_HDG % 360
 end
 
 function HDG_Decrement()
-	HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 10, 1)
-    HDG = HDG % 360
+	gmc710_HDG, HDG_NumberDownTurns, HDG_NumberUpTurns = Rotary_Decrement(gmc710_HDG, HDG_NumberDownTurns, HDG_NumberUpTurns, 10, 1)
+    gmc710_HDG = gmc710_HDG % 360
 end
 
 function CRS1_Increment()
-	CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 10, 1)
-    CRS1 = CRS1 % 360
+	gmc710_CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns = Rotary_Increment(gmc710_CRS1, CRS1_NumberUpTurns, CRS1_NumberDownTurns, 10, 1)
+    gmc710_CRS1 = gmc710_CRS1 % 360
 end
 
 function CRS1_Decrement()
-	CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 10, 1)
-    CRS1 = CRS1 % 360
+	gmc710_CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns = Rotary_Decrement(gmc710_CRS1, CRS1_NumberDownTurns, CRS1_NumberUpTurns, 10, 1)
+    gmc710_CRS1 = gmc710_CRS1 % 360
 end
 
 function CRS2_Increment()
-    CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns = Rotary_Increment(CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns, 10, 1)
-    CRS2 = CRS2 % 360
+    gmc710_CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns = Rotary_Increment(gmc710_CRS2, CRS2_NumberUpTurns, CRS2_NumberDownTurns, 10, 1)
+    gmc710_CRS2 = gmc710_CRS2 % 360
 end
 
 function CRS2_Decrement()
-    CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns = Rotary_Decrement(CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns, 10, 1)
-    CRS2 = CRS2 % 360
+    gmc710_CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns = Rotary_Decrement(gmc710_CRS2, CRS2_NumberDownTurns, CRS2_NumberUpTurns, 10, 1)
+    gmc710_CRS2 = gmc710_CRS2 % 360
 end
 
 function ALT_Increment()
-	ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 500, 100)
+	gmc710_ALT, ALT_NumberUpTurns, ALT_NumberDownTurns = Rotary_Increment(gmc710_ALT, ALT_NumberUpTurns, ALT_NumberDownTurns, 500, 100)
 end
 
 function ALT_Decrement()
-	ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 500, 100)
+	gmc710_ALT, ALT_NumberDownTurns, ALT_NumberUpTurns = Rotary_Decrement(gmc710_ALT, ALT_NumberDownTurns, ALT_NumberUpTurns, 500, 100)
 end
 
 create_command("FlyWithLua/QGMC710/HDG_INC", "HDG INC speed up.", "HDG_Increment()", "", "")
@@ -381,8 +381,8 @@ if PLANE_ICAO == "TBM9" then
                 set_button_assignment(QMCP_ADDR + 21, "FlyWithLua/QGMC710/CRS1_INC")
                 set_button_assignment(QMCP_ADDR + 22, "FlyWithLua/QGMC710/ALT_DEC")
                 set_button_assignment(QMCP_ADDR + 23, "FlyWithLua/QGMC710/ALT_INC")
-                set_button_assignment(QMCP_ADDR + 24, "tbm900/actuators/ap/nose_down")
-                set_button_assignment(QMCP_ADDR + 25, "tbm900/actuators/ap/nose_up")
+                set_button_assignment(QMCP_ADDR + 24, "tbm900/actuators/ap/nose_up")
+                set_button_assignment(QMCP_ADDR + 25, "tbm900/actuators/ap/nose_down")
                 set_button_assignment(QMCP_ADDR + 26, "FlyWithLua/QGMC710/CRS2_DEC")
                 set_button_assignment(QMCP_ADDR + 27, "FlyWithLua/QGMC710/CRS2_INC")
                 ---------------------------------------------- Set Keys End -----------------------------------
